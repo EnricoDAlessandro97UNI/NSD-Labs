@@ -1,5 +1,5 @@
 # Hands-on GNS3
-Semplice topologia iniziale con 1 switch e 3 client di cui 2 sono container docker ed 1 è una macchina virtuale.
+Semplice topologia iniziale con 1 switch e 3 client (2 container docker ed 1 macchina virtuale). I client fanno parte della stessa sottorete e sono connessi attraverso uno switch ethernet.
 
 ## Step 1
 Configurare la macchina virtuale Lubuntu mediante il network manager. In particolare, aprire ```Advanced Network Configuration``` sulla VM ed impostare:
