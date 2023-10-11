@@ -1,6 +1,0 @@
-cygwin warning:
-  MS-DOS style path detected: D:\Universit\xC3\xA0\NSD - Network and System Defence\2023\NSD-Labs\Lab01_Hands-on GNS3\lab01_hands-on\project-files\dynamips
-  Preferred POSIX equivalent is: /cygdrive/d/Universit\xC3\xA0/NSD - Network and System Defence/2023/NSD-Labs/Lab01_Hands-on GNS3/lab01_hands-on/project-files/dynamips
-  CYGWIN environment variable option "nodosfilewarning" turns off this warning.
-  Consult the user's guide for more details about POSIX paths:
-    http://cygwin.com/cygwin-ug-net/using.html#using-pathnames
