@@ -55,3 +55,17 @@ ip addr add 10.100.0.2/24 dev macsec0
 # for antireply: ip link set macsec0 type macsec replay on 
 # to test the configuration: ping 10.100.0.3 (check wireshark)
 ```
+
+I comandi forniti configurano un'interfaccia MACsec su Linux. In particolare:
+1. Il primo comando crea un'interfaccia MACsec denominata *macsec0* collegata all'interfaccia di rete **eth0**.
+2. Il secondo comando aggiunge una *security association* per la trasmissione su *macsec0*.
+3. Il terzo comando aggiunge una configurazione per la ricezione su *macsec0* e specifica l'indirizzo MAC della sorgente.
+4. Il quarto comando completa la configurazione del canale di ricezione su *macsec0* e specifica la chiave sul canale di ricezione (notare che deve essere la stessa chiave utilizzata nel canale di trasmissione del mittente).
+5. Il quinto comando abilita l'interfaccia MACsec *macsec0*.
+6. Il sesto comando assegna l'indirizzo IP **10.100.0.x** con una subnetmask **/24** all'interfaccia *macsec0* (questo consente al client in questione di poter continuare a comunicare anche senza MACsec).
+
+La configurazione effettuata fino a questo momento garantisce solamente integrità dei dati. Per garantire anche cifratura e antireplay è possibile dare sul client in questione i seguenti comandi aggiuntivi:
+```
+ip link set macsec0 type macsec encrypt on
+ip link set macsec0 type macsec replay on
+```
