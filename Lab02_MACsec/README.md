@@ -10,6 +10,7 @@ In Linux è stato aggiunto un supporto per MACsec a partire dal kernel 4.6. Esis
 2. Utilizzo dello standard 802.1x con l'estensione MACsec che consente la scoperta dinamica dei peer MACsec, il setup dei SC e delle SA, la generazione e la distribuzione delle chiavi.
 
 # Laboratorio
+![topology](topology.png)
 
 ## Configurazione del router
 La prima cosa da fare è configurare una nuova interfaccia di rete di tipo bridge per poter mettere in comunicazione le interfacce di rete ```eth0```, ```eth1```, ```eth2``` come se fossero tutte collegate allo stesso segmento di rete (scripts/router/initbridge.sh):
