@@ -19,7 +19,7 @@
         "drawings": [
             {
                 "drawing_id": "8e38395a-306a-4bc5-90c5-a32d77f6a27f",
-                "locked": false,
+                "locked": true,
                 "rotation": 0,
                 "svg": "<svg width=\"453.0\" height=\"406.0\"><ellipse cx=\"226\" rx=\"227\" cy=\"203\" ry=\"203\" fill=\"#ffffff\" fill-opacity=\"1.0\" stroke-width=\"2\" stroke=\"#000000\" /></svg>",
                 "x": -282,
@@ -28,7 +28,7 @@
             },
             {
                 "drawing_id": "d3a5658d-733d-4104-abd1-c83db121d890",
-                "locked": false,
+                "locked": true,
                 "rotation": 0,
                 "svg": "<svg width=\"150\" height=\"29\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#aa0000\" fill-opacity=\"1.0\">LAN 10.0.0.0/24</text></svg>",
                 "x": -246,
@@ -37,7 +37,7 @@
             },
             {
                 "drawing_id": "aaa1ef4b-d97f-4bcd-845e-a1e3b4b6c2b6",
-                "locked": false,
+                "locked": true,
                 "rotation": 0,
                 "svg": "<svg width=\"78\" height=\"29\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">10.0.0.1</text></svg>",
                 "x": -223,
@@ -46,7 +46,7 @@
             },
             {
                 "drawing_id": "4eb9ff18-658b-4540-9640-2147c91b4524",
-                "locked": false,
+                "locked": true,
                 "rotation": 0,
                 "svg": "<svg width=\"78\" height=\"29\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">10.0.0.2</text></svg>",
                 "x": 30,
@@ -55,7 +55,7 @@
             },
             {
                 "drawing_id": "467a89c1-5ad6-46d1-ad6c-283fbfda3621",
-                "locked": false,
+                "locked": true,
                 "rotation": 0,
                 "svg": "<svg width=\"78\" height=\"29\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">10.0.0.3</text></svg>",
                 "x": -143,
@@ -164,7 +164,7 @@
         "nodes": [
             {
                 "compute_id": "vm",
-                "console": 5000,
+                "console": 5014,
                 "console_auto_start": false,
                 "console_type": "telnet",
                 "custom_adapters": [],
@@ -177,7 +177,7 @@
                     "x": 8,
                     "y": -27
                 },
-                "locked": false,
+                "locked": true,
                 "name": "client-1",
                 "node_id": "3a70e84b-c5cf-4991-9136-c27bc6e27c89",
                 "node_type": "docker",
@@ -185,11 +185,11 @@
                 "port_segment_size": 0,
                 "properties": {
                     "adapters": 1,
-                    "aux": 5001,
+                    "aux": 5015,
                     "console_http_path": "/",
                     "console_http_port": 80,
                     "console_resolution": "1024x768",
-                    "container_id": "954bda5958439b93fd22cdd4da45e69a7eb5a252f9601663da5def7d3859f048",
+                    "container_id": "10d1df86174a08d264915178653fea2446193423cbd42e9e27895199797cab37",
                     "environment": null,
                     "extra_hosts": null,
                     "extra_volumes": [
@@ -208,7 +208,7 @@
             },
             {
                 "compute_id": "vm",
-                "console": 5002,
+                "console": 5016,
                 "console_auto_start": false,
                 "console_type": "telnet",
                 "custom_adapters": [],
@@ -221,7 +221,7 @@
                     "x": -24,
                     "y": -27
                 },
-                "locked": false,
+                "locked": true,
                 "name": "client-2",
                 "node_id": "5b1bcef4-d846-4a01-b2b3-31144759af7b",
                 "node_type": "docker",
@@ -229,11 +229,11 @@
                 "port_segment_size": 0,
                 "properties": {
                     "adapters": 1,
-                    "aux": 5003,
+                    "aux": 5017,
                     "console_http_path": "/",
                     "console_http_port": 80,
                     "console_resolution": "1024x768",
-                    "container_id": "8f25c5ddf26c075d7b7dbb89e203b0f4926a23655913a37174a6100c1c527ec3",
+                    "container_id": "7a29cfcfea307106ce08c8ca44f9f6df7b55a0cdb7287febd4bce7d4fd24bfcb",
                     "environment": null,
                     "extra_hosts": null,
                     "extra_volumes": [
@@ -265,7 +265,7 @@
                     "x": 2,
                     "y": 29
                 },
-                "locked": false,
+                "locked": true,
                 "name": "Switch",
                 "node_id": "a56baf7b-4a36-4995-bbbe-faf09be5748a",
                 "node_type": "ethernet_switch",
@@ -345,7 +345,7 @@
                     "x": -28,
                     "y": -25
                 },
-                "locked": false,
+                "locked": true,
                 "name": "VMclient-1-1",
                 "node_id": "b5c31c32-412e-4038-88d5-70a0c4aaad7b",
                 "node_type": "virtualbox",
