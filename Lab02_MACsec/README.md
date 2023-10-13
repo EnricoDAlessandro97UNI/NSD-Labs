@@ -22,9 +22,34 @@ ip link set dev eth2 master bridge
 ```
 
 ## Configurazione dei client
-Configuriamo gli indirizzi MAC ed IP delle interfacce di rete dei tre client (clientX/initaddr.sh):
+Configuriamo gli indirizzi MAC ed IP delle interfacce di rete dei tre client (scripts/clientX/initaddr.sh):
 ```
 ip link set dev eth0 address xy:xy:xy:xy:xy:xy
 ip addr add 10.0.0.z/24 dev eth0
 ```
 dove, ```xy``` va sostituito con ```a0``` per il client 1, con ```b0``` per il client 2 e con ```c0``` per il client 3, e ```z``` va sostituito con ```1```, ```2```, ```3``` rispettivamente per il client 1, 2 e 3. 
+
+A questo punto procediamo con la configurazione di macsec per il canale sicuro bidirezionale tra il client 1 ed il client 2. Per il client 1 (scripts/client1/initmacsec.sh):
+```
+ip link add link eth0 macsec0 type macsec
+ip macsec add macsec0 tx sa 0 pn 1 on key 01 09876543210987654321098765432109
+ip macsec add macsec0 rx address b0:b0:b0:b0:b0:b0 port 1
+ip macsec add macsec0 rx address b0:b0:b0:b0:b0:b0 port 1 sa 0 pn 1 on key 02 12345678901234567890123456789012
+ip link set macsec0 up
+ip addr add 10.100.0.1/24 dev macsec
+```
+
+Per il client 2 (scripts/client2/initmacsec.sh):
+```
+ip link add link eth0 macsec0 type macsec
+ip macsec add macsec0 tx sa 0 pn 1 on key 02 12345678901234567890123456789012
+ip macsec add macsec0 rx address a0:a0:a0:a0:a0:a0 port 1
+ip macsec add macsec0 rx address a0:a0:a0:a0:a0:a0 port 1 sa 0 pn 1 on key 01 09876543210987654321098765432109
+ip link set macsec0 up
+ip addr add 10.100.0.2/24 dev macsec0
+
+# with this conf only integrity is on
+# to encrypt: ip link set macsec0 type macsec encrypt on
+# for antireply: ip link set macsec0 type macsec replay on 
+# to test the configuration: ping 10.100.0.3 (check wireshark)
+```
