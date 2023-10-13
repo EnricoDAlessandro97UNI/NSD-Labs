@@ -7,6 +7,7 @@ Tipicamente, gli *end-host* sono connessi tramite *Access Link*, mentre i dispos
 
 # Laboratorio
 ![topology](topology.png)
+
 Il router utilizzato nella topologia è un container
 
 ## Configurazione del router
