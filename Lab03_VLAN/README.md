@@ -10,6 +10,9 @@ Tipicamente, gli *end-host* sono connessi tramite *Access Link*, mentre i dispos
 
 Il router e gli switch utilizzati nella topologia sono i soliti container docker (nsdcourse/basenet) con la differenza che hanno più interfacce di rete e sono configurati in maniera opportuna.
 
+## Configurazione degli switch
+
+
 ## Configurazione del router
 
 
