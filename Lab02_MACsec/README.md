@@ -29,7 +29,8 @@ ip addr add 10.0.0.z/24 dev eth0
 ```
 dove, ```xy``` va sostituito con ```a0``` per il client 1, con ```b0``` per il client 2 e con ```c0``` per il client 3, e ```z``` va sostituito con ```1```, ```2```, ```3``` rispettivamente per il client 1, 2 e 3. 
 
-A questo punto procediamo con la configurazione di macsec per il canale sicuro bidirezionale tra il client 1 ed il client 2. Per il client 1 (scripts/client1/initmacsec.sh):
+A questo punto procediamo con la configurazione dell'interfaccia MACsec per il canale sicuro bidirezionale tra il client 1 ed il client 2. 
+Per il client 1 (scripts/client1/initmacsec.sh):
 ```
 ip link add link eth0 macsec0 type macsec
 ip macsec add macsec0 tx sa 0 pn 1 on key 01 09876543210987654321098765432109
