@@ -22,3 +22,9 @@ ip link set dev eth2 master bridge
 ```
 
 ## Configurazione dei client
+Configuriamo gli indirizzi MAC ed IP delle interfacce di rete dei tre client (clientX/initaddr.sh):
+```
+ip link set dev eth0 address xy:xy:xy:xy:xy:xy
+ip addr add 10.0.0.z/24 dev eth0
+```
+dove, ```xy``` va sostituito con ```a0``` per il client 1, con ```b0``` per il client 2 e con ```c0``` per il client 3, e ```z``` va sostituito con ```1```, ```2```, ```3``` rispettivamente per il client 1, 2 e 3. 
