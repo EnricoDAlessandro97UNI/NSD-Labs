@@ -8,3 +8,17 @@ MACsec prevede gruppi di stazioni connesse mediante canali sicuri unidirezionali
 In Linux è stato aggiunto un supporto per MACsec a partire dal kernel 4.6. Esistono due modi per implementare MACsec:
 1. Configurazione manuale (statica) dei canali sicuri (SC), delle security associations (SA) e delle chiavi;
 2. Utilizzo dello standard 802.1x con l'estensione MACsec che consente la scoperta dinamica dei peer MACsec, il setup dei SC e delle SA, la generazione e la distribuzione delle chiavi.
+
+# Laboratorio
+
+## Configurazione del router
+La prima cosa da fare è configurare una nuova interfaccia di rete di tipo bridge per poter mettere in comunicazione le interfacce di rete ```eth0```, ```eth1```, ```eth2``` come se fossero tutte collegate allo stesso segmento di rete (scripts/router/initbridge.sh):
+```
+ip link add name bridge type bridge
+ip link set bridge up
+ip link set dev eth0 master bridge
+ip link set dev eth1 master bridge
+ip link set dev eth2 master bridge
+```
+
+## Configurazione dei client
