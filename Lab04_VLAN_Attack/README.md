@@ -80,3 +80,7 @@ ip link set eth0.1.20 up
 ip addr add 10.0.20.250/24 dev eth0.1.20
 arp -s 10.0.20.102 d0:d0:d0:d0:d0:d0 -i eth0.1.20 #if mac not known use broadcast MAC
 ```
+
+Con i comandi precendenti andiamo a creare due interfacce virtuali sull'attaccante:
+* ```eth0.1```, con ```id 1```. Questa VLAN ha lo stesso id della *native VLAN* del link tra i due switch.
+* ```eth0.1.20```, con ```id 20```. Questa VLAN ha l'id della VLAN target. Questa interfaccia virtuale ha come *parent* l'interfaccia virtuale precedente, in modo tale da permettere il doppio incapsulamento. Il comando ```arp -s 10.0.20.102 a0:a0:a0:a0:a0:a0 -i eth0.1.20``` serve a manipolare la arp cache: si aggiunge il bind tra indirizzo MAC e indirizzo ip specificati sull'interfaccia eth0.1.20. Con il comando arp -a si può effettivamente verificare l'effettivo binding. Si può osservare che, per comodità, si è assegnato un indirizzo MAC statico al client vittima.
