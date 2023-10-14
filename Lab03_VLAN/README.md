@@ -44,7 +44,8 @@ bridge vlan add dev eth3 vid 20
 ```
 
 ## Configurazione del router
-Per la configurazione del router si eseguono i seguenti comandi (scripts/router/setup.sh):
+
+#### Router (scripts/router/setup.sh):
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
 ip link add link eth0 name eth0.10 type vlan id 10
