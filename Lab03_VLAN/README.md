@@ -51,7 +51,7 @@ bridge vlan add dev eth3 vid 10
 bridge vlan add dev eth3 vid 20
 ```
 
-I comandi precedenti applicano una configurazione simile a quanto visto precedentemente per lo switch 1.
+I comandi precedenti applicano una configurazione simile a quella vista precedentemente per lo switch 1.
 
 ## Configurazione del router
 
@@ -65,6 +65,10 @@ ip link set eth0.20 up
 ip addr add 10.0.10.1/24 dev eth0.10
 ip addr add 10.0.20.1/24 dev eth0.20
 ```
+
+Con i comandi precedenti configuriamo due VLAN separate (eth0.10 e eth0.20) su un'interfaccia fisica eth0 e assegniamo loro indirizzi IP. Questo meccanismo può essere utilizzato, ad esempio, per creare sottoreti separate all'interno di un sistema, ciascuna delle quali associata a una specifica VLAN. Il primo comando serve semplicemente per consentire al sistema di inoltrare pacchetti IP tra interfacce di rete.
+
+Dopo la configurazione del router, possiamo effettuare il ping con successo, ad esempio, dal client 1 al client 2. Se osserviamo ciò che accade su link tra switch 2 e router, vediamo che i pacchetti di ping compaiono due volte: la prima è quando lo switch 2 lo invia al router e la seconda è quando il router lo invia allo switch 2. Inoltre, è possibile osservare come il tag cambia nei due pacchetti: il primo pacchetto ha tag 10, mentre il secondo ha tag 20. Il router ha ovviamente cambiato il tag per far si che il pacchetto possa arrivare a destinazione.
 
 ## Configurazione dei client
 Sui client si eseguono i seguenti comandi (scripts/clientX/setup.sh):
