@@ -11,7 +11,8 @@ Tipicamente, gli *end-host* sono connessi tramite *Access Link*, mentre i dispos
 Il router e gli switch utilizzati nella topologia sono i soliti container docker (nsdcourse/basenet) con la differenza che hanno più interfacce di rete e sono configurati in maniera opportuna.
 
 ## Configurazione degli switch
-Per lo switch 1 eseguiamo i seguenti comandi (scripts/switch1/setup.sh):
+
+#### Switch 1 (scripts/switch1/setup.sh):
 ```
 ip link add name bridge type bridge
 ip link set dev bridge type bridge vlan_filtering 1
@@ -25,7 +26,7 @@ bridge vlan add dev eth2 vid 10
 bridge vlan add dev eth2 vid 20
 ```
 
-Per lo switch 2 eseguiamo invece i seguenti comandi (scripts/switch2/setup.sh):
+#### Switch 2 (scripts/switch2/setup.sh):
 ```
 ip link add name bridge type bridge
 ip link set dev bridge type bridge vlan_filtering 1
