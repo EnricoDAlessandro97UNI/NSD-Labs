@@ -15,16 +15,24 @@ Il router e gli switch utilizzati nella topologia sono i soliti container docker
 #### Switch 1 (scripts/switch1/setup.sh):
 ```
 ip link add name bridge type bridge
-ip link set dev bridge type bridge vlan_filtering 1
 ip link set bridge up
 ip link set dev eth0 master bridge
 ip link set dev eth1 master bridge
 ip link set dev eth2 master bridge
+```
+
+Con i comandi precedenti configuriamo un bridge di rete in un sistema Linux. Un bridge di rete consente di collegare tra loro diverse interfacce di rete in modo che possano operare come un singolo segmento di rete. Quindi, qualsiasi pacchetto inviato a una delle interfacce (eth0, eth1, eth2) sarà inoltrato alle altre interfacce associate al bridge come se fossero tutte collegate allo stesso segmento di rete.
+
+```
+ip link set dev bridge type bridge vlan_filtering 1
 bridge vlan add dev eth0 vid 10 pvid untagged
 bridge vlan add dev eth1 vid 20 pvid untagged
 bridge vlan add dev eth2 vid 10
 bridge vlan add dev eth2 vid 20
 ```
+
+I comandi precedenti configurano il bridge per supportare il VLAN filtering e assegnano VLAN specifiche alle interfacce di rete (eth0, eth1 ed eth2). In particolare, eth0 è configurato con la VLAN 10 come PVID untagged, eth1 con la VLAN 20 come PVID untagged, e eth2 è associato sia alla VLAN 10 che alla VLAN 20.
+
 
 #### Switch 2 (scripts/switch2/setup.sh):
 ```
@@ -42,6 +50,8 @@ bridge vlan add dev eth2 vid 20
 bridge vlan add dev eth3 vid 10
 bridge vlan add dev eth3 vid 20
 ```
+
+I comandi precedenti applicano una configurazione simile a quanto visto precedentemente per lo switch 1.
 
 ## Configurazione del router
 
