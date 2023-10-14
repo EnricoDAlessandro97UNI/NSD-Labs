@@ -11,9 +11,81 @@ Tipicamente, gli *end-host* sono connessi tramite *Access Link*, mentre i dispos
 Il router e gli switch utilizzati nella topologia sono i soliti container docker (nsdcourse/basenet) con la differenza che hanno più interfacce di rete e sono configurati in maniera opportuna.
 
 ## Configurazione degli switch
+Per lo switch 1 eseguiamo i seguenti comandi (scripts/switch1/setup.sh):
+```
+ip link add name bridge type bridge
+ip link set dev bridge type bridge vlan_filtering 1
+ip link set bridge up
+ip link set dev eth0 master bridge
+ip link set dev eth1 master bridge
+ip link set dev eth2 master bridge
+bridge vlan add dev eth0 vid 10 pvid untagged
+bridge vlan add dev eth1 vid 20 pvid untagged
+bridge vlan add dev eth2 vid 10
+bridge vlan add dev eth2 vid 20
+```
 
+Per lo switch 2 eseguiamo invece i seguenti comandi (scripts/switch2/setup.sh):
+```
+ip link add name bridge type bridge
+ip link set dev bridge type bridge vlan_filtering 1
+ip link set bridge up
+ip link set dev eth0 master bridge
+ip link set dev eth1 master bridge
+ip link set dev eth2 master bridge
+ip link set dev eth3 master bridge
+bridge vlan add dev eth0 vid 10 pvid untagged
+bridge vlan add dev eth1 vid 20 pvid untagged
+bridge vlan add dev eth2 vid 10
+bridge vlan add dev eth2 vid 20
+bridge vlan add dev eth3 vid 10
+bridge vlan add dev eth3 vid 20
+```
 
 ## Configurazione del router
-
+Per la configurazione del router si eseguono i seguenti comandi (scripts/router/setup.sh):
+```
+sudo sysctl -w net.ipv4.ip_forward=1
+ip link add link eth0 name eth0.10 type vlan id 10
+ip link add link eth0 name eth0.20 type vlan id 20
+ip link set eth0.10 up
+ip link set eth0.20 up
+ip addr add 10.0.10.1/24 dev eth0.10
+ip addr add 10.0.20.1/24 dev eth0.20
+```
 
 ## Configurazione dei client
+Sui client si eseguono i seguenti comandi (scripts/clientX/setup.sh):
+```
+ip link set eth0 up
+ip addr add <client_ip>/24 dev eth0     # ip addr in the topology
+ip route add default via <gateway_ip>   # IP GW is <vlan_netmask>.1
+```
+
+In particolare, per il client 1:
+```
+ip link set eth0 up
+ip addr add 10.0.10.101/24 dev eth0     # ip addr in the topology
+ip route add default via 10.0.10.1   # IP GW is <vlan_netmask>.1
+```
+
+Per il client 2:
+```
+ip link set eth0 up
+ip addr add 10.0.20.101/24 dev eth0     # ip addr in the topology
+ip route add default via 10.0.20.1   # IP GW is <vlan_netmask>.1
+```
+
+Per il client 3:
+```
+ip link set eth0 up
+ip addr add 10.0.10.102/24 dev eth0     # ip addr in the topology
+ip route add default via 10.0.10.1   # IP GW is <vlan_netmask>.1
+```
+
+Per il client 4:
+```
+ip link set eth0 up
+ip addr add 10.0.20.102/24 dev eth0     # ip addr in the topology
+ip route add default via 10.0.20.1   # IP GW is <vlan_netmask>.1
+```
