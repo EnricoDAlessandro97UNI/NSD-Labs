@@ -62,28 +62,28 @@ ip addr add <client_ip>/24 dev eth0     # ip addr in the topology
 ip route add default via <gateway_ip>   # IP GW is <vlan_netmask>.1
 ```
 
-In particolare, per il client 1:
+#### Client 1
 ```
 ip link set eth0 up
 ip addr add 10.0.10.101/24 dev eth0     # ip addr in the topology
 ip route add default via 10.0.10.1      # IP GW is <vlan_netmask>.1
 ```
 
-Per il client 2:
+#### Client 2
 ```
 ip link set eth0 up
 ip addr add 10.0.20.101/24 dev eth0     # ip addr in the topology
 ip route add default via 10.0.20.1      # IP GW is <vlan_netmask>.1
 ```
 
-Per il client 3:
+#### Client 3
 ```
 ip link set eth0 up
 ip addr add 10.0.10.102/24 dev eth0     # ip addr in the topology
 ip route add default via 10.0.10.1      # IP GW is <vlan_netmask>.1
 ```
 
-Per il client 4:
+#### Client 4
 ```
 ip link set eth0 up
 ip addr add 10.0.20.102/24 dev eth0     # ip addr in the topology
