@@ -3,7 +3,7 @@
 ## Cos'è 802.1x e come funziona
 
 **IEEE 802.1x** è uno standard IEEE utilizzato per l'autenticazione degli utenti o dei dispositivi che cercano di connettersi a una rete Ethernet o Wi-Fi. Il protocollo 802.1x offre un meccanismo di autenticazione basato su porte, il che significa che l'accesso alla rete viene consentito o rifiutato in base all'autenticazione dell'entità che cerca di connettersi a una porta di rete specifica. Nel protocollo 802.1x troviamo tre attori principali:
-* *Supplicant (client)*: è il dispositivo o l'utente che cerca di accedere alla rete. Il supplicant invia le credenziali di autenticazione al sistema di autenticazione. 
+* *Supplicant (Client)*: è il dispositivo o l'utente che cerca di accedere alla rete. Il supplicant invia le credenziali di autenticazione al sistema di autenticazione. 
 * *Authenticator (Switch o Access Point)*: è il dispositivo di rete che agisce come intermediario tra il supplicant e il sistema di autenticazione. L'authenticator richiede l'autenticazione e comunica con il supplicant e il sistema di autenticazione.
 * *Sistema di autenticazione (Authentication Server)*: entità che verifica le credenziali del supplicant per determinare se l'accesso alla rete deve essere consentito oppure rifiutato. Questo sistema può essere basato su una varietà di metodi di autenticazione, come username e password, certificati digitali, token hardware, o altre forme di autenticazione.
 
@@ -20,6 +20,7 @@ Se un attaccante è in grado di intercettare fisicamente i pacchetti di un utent
 * Spoofing di IP/MAC e sostituirsi a un utente autenticato accedendo alla rete.
 * DoS attraverso invio di pacchetti ```EAPoL-Logoff```: sono pacchetti in chiaro e possono essere inviati da chiunque. 
 
+Per far fronte a queste vulnerabilità sono stati aggiunti allo standard i protocolli MACsec e MACsec Key Agreement.
 
 # Laboratorio
 
