@@ -25,23 +25,17 @@ Per far fronte a queste vulnerabilità sono stati aggiunti allo standard i proto
 # Laboratorio
 ![topology](topology.png)
 
-## Configurazione degli switch
+## Configurazione Cumulus
 
 #### Switch 1 (scripts/switch1/setup.sh):
 
 
-## Configurazione dei client
+## Configurazione server radius
+
+
+## Configurazione client
 
 #### Client 1 (scripts/client1/setup.h):
 
 
 #### Client 2 (scripts/client2/setup.h):
-
-
-#### Client 3 (scripts/client3/setup.h):
-
-
-#### Client 4 (scripts/client4/setup.h):
-
-
-#### Attacker (scripts/attacker/setup.sh):
