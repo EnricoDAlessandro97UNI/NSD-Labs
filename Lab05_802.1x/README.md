@@ -23,7 +23,7 @@ Se un attaccante è in grado di intercettare fisicamente i pacchetti di un utent
 Per far fronte a queste vulnerabilità sono stati aggiunti allo standard i protocolli MACsec e MACsec Key Agreement.
 
 # Laboratorio
-
+![topology](topology.png)
 
 ## Configurazione degli switch
 
